@@ -4,6 +4,7 @@ package main  //包声明 模块化
 //require('fs') filesystem
 import (
 	"fmt"  //向命令行输出hello world   format
+	"math"
 )//es6
  //node 脚本语言 实时编译
  //go c 二进制文件
@@ -33,7 +34,14 @@ func canEatAllBananas(piles []int, H int, k int) bool {
 	//1. range piles piles[i]/k向上取整数 math.Ceil
 	//2. 加起来
 	//3. 是否小于等于H
+	time :=0
+	for _, n := range piles{
+		time += int(math.Ceil(float64(n)/float64(k)))
+	}
+	if time == H {
 	return true
+	}
+	return false
 }
 func maxPiles(piles []int) int {
 	h := 0
